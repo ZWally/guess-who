@@ -7,12 +7,17 @@ import { useEffect } from 'react';
 
 const socket = io(SERVER_PATH);
 
+
 function App() {
 
   useEffect(() => {
     socket.on('connect', () => {
       console.log("connected successfully")
     });
+
+    return () => {
+      socket.off('connect')
+    }
   }, []);
 
   return (
