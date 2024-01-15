@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import {SERVER_PORT} from "../shared/environment"
 
 const app = express();
 const httpServer = createServer(app);
@@ -25,6 +26,6 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(3001, () => {
-  console.log("Server listening on port 3001");
+httpServer.listen(SERVER_PORT, () => {
+  console.log(`Server listening on port ${SERVER_PORT}`);
 });
