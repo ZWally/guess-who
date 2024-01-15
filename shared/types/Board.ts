@@ -1,12 +1,15 @@
+import { randomUUID } from "crypto";
 import { Character, CharacterState } from "./Character"
 
 export type Board = {
+    id : String,
     characters : CharacterState[],
 }
 
 export const newBoard = (characters?: Character[]): Board => {
     const board: Board = {
-      characters: Array.from(characters || DEFAULT_CHARACTERS, (character) => ({
+        id: randomUUID(),
+        characters: Array.from(characters || DEFAULT_CHARACTERS, (character) => ({
         character,
         isVisible: true,
       })),
