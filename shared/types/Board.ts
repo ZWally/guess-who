@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 import { Character, CharacterState } from "./Character"
 
 export type Board = {
-    id : String,
+    id : string,
     characters : CharacterState[],
 }
 

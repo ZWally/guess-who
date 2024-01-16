@@ -1,7 +1,7 @@
 import { Board } from "./Board"
 
 export type Session = {
-    id: String,
+    id: string,
     player1: Board,
     player2: Board,
 }

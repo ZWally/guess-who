@@ -1,6 +1,6 @@
 export type Character = {
-    name: String,
-    image: String,
+    name: string,
+    image: string,
 }
 
 export type CharacterState = {

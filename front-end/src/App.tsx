@@ -4,8 +4,8 @@ import './App.css'
 import { SERVER_PATH } from "../../shared/environment"
 import GuessWhoCharacter from './GuessWhoCharacter'
 import { useEffect } from 'react';
-
-const socket = io(SERVER_PATH);
+import { SocketContext, socket } from './contexts/socket';
+import Homepage from './Homepage';
 
 
 function App() {
@@ -21,9 +21,9 @@ function App() {
   }, []);
 
   return (
-    <>
-      <GuessWhoCharacter image={'vite.svg'} name={'Zach'}></GuessWhoCharacter>
-    </>
+    <SocketContext.Provider value = {socket}>
+      <Homepage></Homepage>
+    </SocketContext.Provider>
   )
 }
 
