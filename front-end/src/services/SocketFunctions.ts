@@ -1,17 +1,16 @@
 import { Socket} from "socket.io-client";
-import { CREATE_EVENT, JOIN_EVENT, UPDATE_BOARD_EVENT } from "../../../shared/events";
-import { Player } from "../../../shared/types/Player";
-import { Board } from "../../../shared/types/Board";
+import { CREATE_EVENT, CreateEventParams, JOIN_EVENT, JoinEventParams, UPDATE_BOARD_EVENT, UpdateBoardEventParams } from "../../../shared/events";
+import { ServerResponse } from "http";
 
 
-export const createNewRoom = (socket: Socket, player: Player)=>{
-    socket.emit(CREATE_EVENT,player,)
+export const createNewRoom = (socket: Socket, params: CreateEventParams,) =>{
+    socket.emit(CREATE_EVENT,params,(response:ServerResponse) => {console.log(response)});
 }
 
-export const joinSessionById = (socket: Socket, sessionId: String)=>{
-    socket.emit(JOIN_EVENT,sessionId,)
+export const joinSessionById = (socket: Socket, params: JoinEventParams)=>{
+    socket.emit(JOIN_EVENT,params,(response:ServerResponse) => {console.log(response)});
 }
 
-export const updateBoard = (socket: Socket, board: Board)=>{
-    socket.emit(UPDATE_BOARD_EVENT,board,)
+export const updateBoard = (socket: Socket, params: UpdateBoardEventParams)=>{
+    socket.emit(UPDATE_BOARD_EVENT,params,(response:ServerResponse) => {console.log(response)});
 }
